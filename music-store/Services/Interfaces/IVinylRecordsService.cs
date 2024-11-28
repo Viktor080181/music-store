@@ -24,5 +24,12 @@ namespace music_store.Services.Interfaces
 		* @return A list of vinyl records that were added to the database within the last month.
 		*/
 		public List<VinylRecord> GetNewVinylRecords();
-	}
+
+		/*! 
+		* @brief Retrieves a list of of vinyl records by author.
+		* @return A list of vinyl records by author.
+		*/
+		public IEnumerable<VinylRecord>? SearchByAuthorName(string authorName);
+
+    }
 }

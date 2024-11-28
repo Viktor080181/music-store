@@ -52,5 +52,11 @@ namespace music_store.Services
 					   .Where(vr => vr.DateOfReceiptOfTheRecords >= oneMonthAgo)
 					   .ToList();
 		}
-	}
+        public IEnumerable<VinylRecord>? SearchByAuthorName(string authorName)
+        {
+            return _dbConnection.VinylRecords
+                 .Where(vr => vr.MusicBand.Name == authorName);
+        }
+
+    }
 }
