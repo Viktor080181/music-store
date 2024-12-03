@@ -37,6 +37,21 @@ namespace music_store.Services
 
 			return false;
 		}
+    
+		public IEnumerable<VinylRecord>? FindVinylRecordByAuthorName(string authorName)
+		{
+			try
+			{
+				return this._dbConnection.VinylRecords.Where(vin => 
+				vin.MusicBand.Name.ToLower() == authorName.ToLower());
+			}
+			catch (Exception exception)
+			{
+				Console.WriteLine(exception.ToString());
+			}
+
+			return null;
+		}
 
 		public VinylRecord? SearchByName(string vinylRecordName)
 		{
