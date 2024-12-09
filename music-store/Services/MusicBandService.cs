@@ -50,7 +50,6 @@ namespace music_store.Services
             return null;
         }
 
-        
         public bool DeleteMusicBand(MusicBand musicBand)
         {
             try
