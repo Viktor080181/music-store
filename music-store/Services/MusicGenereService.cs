@@ -31,20 +31,19 @@ namespace music_store.Services
             }
         }
 
-        public MusicGenre? FindMusicGenere(MusicGenre musicGenre)
+        public IEnumerable<VinylRecord> FindVinylRecordsByMusicGenere(string musicGenre)
         {
             try
             {
-                return this._databaseConnection.MusicGenres.Where(mGenre =>
-                mGenre.Name == musicGenre.Name).FirstOrDefault();
+                return this._databaseConnection.VinylRecords.Where(
+                    vinyl => vinyl.MusicGenre.Name == musicGenre);
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception.ToString());
             }
 
-            return null;
+            return Enumerable.Empty<VinylRecord>();
         }
-
     }
 }
